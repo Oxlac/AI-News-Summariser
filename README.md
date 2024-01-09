@@ -1,5 +1,6 @@
 <br />
 <div align="center">
+  ![logo](https://github.com/Oxlac/AI-News-Summariser/assets/73121234/181626cc-9ae0-43f1-85c9-21364d390722)
   <h3 align="center">AI-News-Summariser</h3>
   <p align="center">
     A tool for automatically summarizing news articles using artificial intelligence.
