@@ -5,7 +5,7 @@
   <p align="center">
     A tool for automatically summarizing news articles using artificial intelligence.
     <br />
-    <a href="#">Visit the Website »</a>
+    <a href="https://aisummariser.oxlac.com">Visit the Website »</a>
     <br />
     <br />
     <a href="https://www.aadinagarajan.com/#contact">Contact Developer</a>
