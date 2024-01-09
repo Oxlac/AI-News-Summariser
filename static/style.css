@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+body {
+    background-color: #0E1316;
+    color: #EDEDED;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+    position: relative;
+    min-height: calc(100vh - 90px);
+}
+
+.heading {
+    text-align: center;
+    font-size: 3.5rem;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+body::-webkit-scrollbar {
+	width: 7px; /* width of the entire scrollbar */
+}
+  
+body::-webkit-scrollbar-track {
+	background: #0E1316; /* color of the tracking area */
+}
+  
+body::-webkit-scrollbar-thumb {
+	background-color: #252930; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+}
+
+.sub-heading {
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 5rem;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.form{
+    display: flex;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.form input[type=text] {
+    width: 40%;
+    height: 3rem;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    padding-left: 1rem;
+}
+
+.form input[type=text]:active {
+    border: none;
+    outline: none;
+}
+
+.form button {
+    position: relative;
+    border-radius: 10px;
+    width: 3rem;
+    outline: none;
+    border: none;
+    cursor:pointer;
+    user-select:none;
+    transition-duration: 0.4s;
+    -webkit-transition-duration: 0.4s;
+}
+
+.form button:hover {
+    transition-duration: 0.1s;
+    background-color: #28ffad;
+}
+
+.form button:active {
+    top: 1px;
+}
+
+.form button:active::after {
+    box-shadow: 0 0 0 0 white;
+    position: absolute;
+    border-radius: 10px;
+    left: 0;
+    top:0;
+    opacity: 1;
+    transition: 0s;
+}
+
+.form button:after {
+    content: "";
+    display: block;
+    position: absolute;
+    border-radius: 10px;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: all 0.5s;
+    box-shadow: 0 0 10px 40px white;
+}
+
+.content {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    border: 2px solid #252930;
+    width: 80vw;
+    padding: 2rem;
+    border-radius: 10px;
+    background-color: #1C1E27;
+    margin-bottom: 5rem;
+    /* box-shadow: */
+    /* 0 0 21px 1px rgb(255, 35, 101); */
+    /* 0 0 .5px 1px rgb(7, 255, 152); */
+}
+
+.card .heading {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.main-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.main-wrapper .col-1 {
+    width: 80%;
+}
+
+.main-wrapper .col-2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.main-wrapper .col-2 .top-image {
+    max-width: 70%;
+    height: auto;
+    border-radius: 20px;
+}
+ 
+.summary-tag {
+    font-size: 1.5rem;
+}
+
+.author-tag {
+    font-size: 1.5rem;
+}
+
+.date-tag {
+    font-size: 1.5rem;
+}
+
+.sentiment-tag {
+    font-size: 1.5rem;
+}
+
+.author-list li.hidden {
+    display: none;
+}
+
+#readMoreBtn {
+    display: block;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    color: #28ffad;
+    cursor: pointer;
+}
+
+#readMoreBtn:hover {
+    text-decoration: underline;
+}
+
+
+@media screen and (max-width: 768px) {
+    .heading {
+        font-size: 3rem;
+    }
+
+    .form input[type=text] {
+        width: 60%;
+    }
+
+    .card {
+        width: 75vw;
+        padding: 1rem;
+    }
+    
+    .card .heading {
+        font-size: 1.5rem;
+    }
+
+    .main-wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .main-wrapper .col-2 .top-image {
+        width: 100%;
+    }
+
+    .main-wrapper .col-1 {
+        width: 100%;
+    }
+
+    .infos {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+
+.flash-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent; /* Background color for the alert container */
+    color: #fff; /* Text color for the alert text */
+    text-align: center;
+    padding: 10px 0;
+    z-index: 9999; /* Ensures the alert is on top of other content */
+}
+
+.alert {
+    background: #ff3333; /* Background color for the alert */
+    color: #fff; /* Text color for the alert text */
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+.infos {
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  bottom: 10px;
+  left: 50%; 
+  transform: translateX(-50%);
+}
+
+.developer {
+    text-decoration: none;
+    cursor:pointer;  
+    color: #28ffad;
+}
