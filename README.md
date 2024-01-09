@@ -12,6 +12,8 @@
     <a href="https://github.com/Oxlac/AI-News-Summariser/issues">Report Bug</a>
     ·
     <a href="https://github.com/Oxlac/AI-News-Summariser/issues">Request Feature</a>
+    .
+    <a href="https://discord.gg/x3ba4sTzgd">Discord Support</a>
   </p>
 </div>
 
