@@ -15,7 +15,7 @@
     <link rel="manifest" href="{{ url_for('static', filename='favicon_io/site.webmanifest') }}">
     
     <title>News Article Summarizer</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='light-theme.css') }}" id="theme-style">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='dark-theme.css') }}" id="theme-style">
 </head>
 <body>
     <h2 class="sub-heading">AI Powered</h2>
@@ -108,11 +108,11 @@
             const themeToggle = document.getElementById('theme-toggle');
 
             if (themeToggle.checked) {
-                themeStyle.href = "{{ url_for('static', filename='dark-theme.css') }}";
-                localStorage.setItem('theme', 'dark');
-            } else {
                 themeStyle.href = "{{ url_for('static', filename='light-theme.css') }}";
                 localStorage.setItem('theme', 'light');
+            } else {
+                themeStyle.href = "{{ url_for('static', filename='dark-theme.css') }}";
+                localStorage.setItem('theme', 'dark');
             }
         }
 
@@ -121,7 +121,7 @@
             const themeToggle = document.getElementById('theme-toggle');
             const savedTheme = localStorage.getItem('theme');
 
-            if (savedTheme === 'dark') {
+            if (savedTheme === 'light') {
                 themeToggle.checked = true;
             } else {
                 themeToggle.checked = false;
