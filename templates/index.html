@@ -15,11 +15,19 @@
     <link rel="manifest" href="{{ url_for('static', filename='favicon_io/site.webmanifest') }}">
     
     <title>News Article Summarizer</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='light-theme.css') }}" id="theme-style">
 </head>
 <body>
     <h2 class="sub-heading">AI Powered</h2>
     <h1 class="heading">News Article Summarizer</h1>
+    <!-- Theme Switch Button -->
+    <div class="theme-switch-wrapper">
+        <span>Change Theme</span>
+        <label class="theme-switch" for="theme-toggle">
+            <input type="checkbox" id="theme-toggle" onchange="toggleTheme()" />
+            <div class="slider round"></div>
+        </label>
+    </div>
     <form method="POST" class="form">
         <input type="text" name="url" id="url" required placeholder="Enter an news article URL">
         <button type="submit">
@@ -93,8 +101,34 @@
         function initializeAuthors() {
             toggleAuthors(); // Initialize the state
         }
-        
-        // Call the initialization function when the page loads
+
+        // Correct the function to use the proper ID 'theme-toggle'
+        function toggleTheme() {
+            const themeStyle = document.getElementById('theme-style');
+            const themeToggle = document.getElementById('theme-toggle');
+
+            if (themeToggle.checked) {
+                themeStyle.href = "{{ url_for('static', filename='dark-theme.css') }}";
+                localStorage.setItem('theme', 'dark');
+            } else {
+                themeStyle.href = "{{ url_for('static', filename='light-theme.css') }}";
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        // You do not need to add another event listener since you are using 'onchange' in the HTML
+        window.addEventListener("load", () => {
+            const themeToggle = document.getElementById('theme-toggle');
+            const savedTheme = localStorage.getItem('theme');
+
+            if (savedTheme === 'dark') {
+                themeToggle.checked = true;
+            } else {
+                themeToggle.checked = false;
+            }
+            toggleTheme(); // This will set the correct theme when the page loads
+        });
+
         window.addEventListener("load", initializeAuthors);
     </script>
     <script src="https://kit.fontawesome.com/928fde7a55.js" crossorigin="anonymous"></script>
