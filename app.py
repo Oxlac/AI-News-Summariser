@@ -5,6 +5,7 @@ from newspaper import Article
 from datetime import datetime
 from urllib.parse import urlparse
 import validators
+import requests
 
 nltk.download('punkt')
 
@@ -28,6 +29,13 @@ def index():
             flash('Please enter a valid URL.')
             return redirect(url_for('index'))
         
+        try:
+            response = requests.get(url)
+            response.raise_for_status()  # Raise an HTTPError if the HTTP request returned an unsuccessful status code
+        except requests.RequestException:
+            flash('Failed to download the content of the URL.')
+            return redirect(url_for('index'))
+        
         article = Article(url)
         article.download()
         article.parse()
@@ -49,6 +57,10 @@ def index():
 
         analysis = TextBlob(article.text)
         polarity = analysis.sentiment.polarity  # Get the polarity value
+
+        if summary == "":
+            flash('Please enter a valid URL.')
+            return redirect(url_for('index'))
 
         if polarity > 0:
             sentiment = 'happy 😊'
