@@ -5,6 +5,7 @@ from newspaper import Article
 from datetime import datetime
 from urllib.parse import urlparse
 import validators
+import requests
 
 nltk.download('punkt')
 
